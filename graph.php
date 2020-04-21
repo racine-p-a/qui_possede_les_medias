@@ -47,11 +47,19 @@ function genererJavascript(
     array &$relations    = array(),
     array &$options      = array()
 ){
+    //var_dump($typeEntites);
     $codeJS ='
     <script type="text/javascript">
         // Le tableau des nœuds.
         var nodes = new vis.DataSet([';
     foreach ($tableauIdNom as $id=>$entite){
+        if($typeEntites[$id]=='1'){
+            $codeJS .= '
+            {id: ' . $id . ', label: \'' . $entite . '\', image: \'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/personnephysique.svg\', shape: \'image\'},';
+        } else if($typeEntites[$id]=='2'){
+            $codeJS .= '
+            {id: ' . $id . ', label: \'' . $entite . '\', image: \'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/personnemorale.svg\', shape: \'image\'},';
+        } else
         $codeJS .= '
             {id: ' . $id . ', label: \'' . $entite . '\', image: \'' . recupererLogos($entite) . '\', shape: \'image\'},';
     }
@@ -516,5 +524,5 @@ function recupererLogos($nomEntite=''){
     if( isset($logos[$nomEntite]) ) {
         return $logos[$nomEntite];
     }
-    return 'https://p-a-racine.fr/vue/images/icons8-accueil-24.png';
+    return 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/logoinconnu.svg';
 }
