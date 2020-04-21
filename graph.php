@@ -13,15 +13,26 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
+/**
+ * Fonction pincipale renvoyant le code HTML.
+ * @param array $options La totalité des options voulues par l'utilisateur.
+ * @return string
+ */
 function recupererCodeGraphe($options=array()){
     $donnees = recupererDonnesNettoyees();
-    return afficherGraphe($donnees[0], $donnees[1], $donnees[2], $donnees[3], $options);
+    return batirGraphe($donnees[0], $donnees[1], $donnees[2], $donnees[3], $options);
 }
 
-
-
-function afficherGraphe(
+/**
+ * Assemble les différentes portions nécessaires pour avoir un graphe. Renvoie le code final ainsi généré.
+ * @param array $tableauIdNom
+ * @param array $tableauNomId
+ * @param array $typeEntites
+ * @param array $relations
+ * @param array $options
+ * @return string
+ */
+function batirGraphe(
     array &$tableauIdNom = array(),
     array &$tableauNomId = array(),
     array &$typeEntites  = array(),
@@ -34,12 +45,25 @@ function afficherGraphe(
     return genererBloc($options) . genererJavascript($tableauIdNom, $tableauNomId, $typeEntites, $relations, $options);
 }
 
+/**
+ * Renvoi du pied de page.
+ * @return string
+ */
 function genererPiedDePage(){
     return '
 </body>
 </html>';
 }
 
+/**
+ * Génère et renvoie le code js nécessaire pour créer le graphe.
+ * @param array $tableauIdNom
+ * @param array $tableauNomId
+ * @param array $typeEntites
+ * @param array $relations
+ * @param array $options
+ * @return string
+ */
 function genererJavascript(
     array &$tableauIdNom = array(),
     array &$tableauNomId = array(),
@@ -47,7 +71,6 @@ function genererJavascript(
     array &$relations    = array(),
     array &$options      = array()
 ){
-    //var_dump($typeEntites);
     $codeJS ='
     <script type="text/javascript">
         // Le tableau des nœuds.
@@ -107,6 +130,11 @@ function genererJavascript(
     return $codeJS;
 }
 
+/**
+ * Génère le code HTML (sans js) en fonction des options reçues en argument.
+ * @param array $options
+ * @return string
+ */
 function genererBloc($options=array()){
     isset($options['CSS']['id_graphe']) ? $id = $options['CSS']['id_graphe'] : $id = '';
     isset($options['CSS']['classes_graphe']) ? $classes = $options['CSS']['classes_graphe'] : $id = '';
@@ -114,6 +142,10 @@ function genererBloc($options=array()){
     return '<div id="' . $options['CSS']['id_graphe'] . '" class="' . $classes . '" style="' . $style . '"></div>';
 }
 
+/**
+ * Génère et renvoie l'en-tête HTML de la page.
+ * @return string
+ */
 function genererEnTete(){
     return '<!doctype html>
 <html>
@@ -122,31 +154,6 @@ function genererEnTete(){
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 </head>
 <body>';
-}
-
-
-function assignerForme($idTypeEntite=''){
-    $formes = array(
-        '1'=> 'box',        // Personne physique
-        '2'=> 'ellipse',    // Personne morale
-        '3'=> 'ellipse',    // Média
-    );
-    if( isset($formes[$idTypeEntite]) ) {
-        return $formes[$idTypeEntite];
-    }
-    return 'diamond';
-}
-
-function assignerCouleur($idTypeEntite=''){
-    $couleurs = array(
-        '1'=> 'box',        // Personne physique
-        '2'=> 'ellipse',    // Personne morale
-        '3'=> 'ellipse',    // Média
-    );
-    if( isset($couleurs[$idTypeEntite]) ) {
-        return $couleurs[$idTypeEntite];
-    }
-    return 'diamond';
 }
 
 /**
@@ -193,6 +200,11 @@ function recupererDonnesNettoyees(){
     return array($idEntiteNomEntite, $nomEntiteIdEntite, $idEntiteTypeEntite, $relations);
 }
 
+/**
+ * Renvoie l'url du logo ccorrepondant au nom reçu en entrée.
+ * @param string $nomEntite
+ * @return string
+ */
 function recupererLogos($nomEntite=''){
     $logos = array(
         'Sophia Publications' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/sophiapublications.webp',
