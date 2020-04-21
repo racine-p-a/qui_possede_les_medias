@@ -16,7 +16,6 @@ error_reporting(E_ALL);
 
 function recupererCodeGraphe($options=array()){
     $donnees = recupererDonnesNettoyees();
-    $logos = recupererLogos();
     return afficherGraphe($donnees[0], $donnees[1], $donnees[2], $donnees[3], $options);
 }
 
@@ -268,7 +267,7 @@ function recupererLogos($nomEntite=''){
         'Bolloré' => 'https://p-a-racine.fr/vue/images/icons8-accueil-24.png',
         'CNews' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/cnews.svg',
         'Vivendi' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/vivendi.svg',
-        'Canal +' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/canal+.svg',
+        'Canal +' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/canalplus.svg',
         'C8' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/c8.svg',
         'CNews' => 'https://p-a-racine.fr/vue/images/icons8-accueil-24.png',
         'CStar' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/cstar.webp',
@@ -341,12 +340,12 @@ function recupererLogos($nomEntite=''){
         'Mouv’' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/mouv.webp',
         'Arte' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/arte.webp',
         'ARD / ZDF' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/ardzdf.webp',
-        'Arte Deutschland TV GmbH' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/arteDeutschlandtv.webp',
+        'Arte Deutschland TV GmbH' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/artedeutschlandtv.webp',
         'Les Augustins de l’Assomption' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/augustinsdelassomption.webp',
         'Bayard' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/bayard.webp',
         'La Croix' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/lacroix.svg',
         'Pèlerin' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/pelerin.webp',
-        'Notre temps' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/npytretemps.webp',
+        'Notre temps' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/notretemps.webp',
         'Jean-Paul Baudecroux' => 'https://p-a-racine.fr/vue/images/icons8-accueil-24.png',
         'NRJ Group' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/nrjgroup.webp',
         'NRJ 12' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/nrj12.svg',
@@ -436,7 +435,7 @@ function recupererLogos($nomEntite=''){
         'Les Journaux du midi' => 'https://p-a-racine.fr/vue/images/icons8-accueil-24.png',
         'Midi libre' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/midilibre.webp',
         'L’Indépendant' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/lindependant.webp',
-        'Centre Presse Aveyron' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/centrepreseaveyron.webp',
+        'Centre Presse Aveyron' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/centrepresseaveyron.webp',
         'Famille Lemoine' => 'https://p-a-racine.fr/vue/images/icons8-accueil-24.png',
         'Groupe Sud Ouest' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/groupesudouest.webp',
         'Sud Ouest' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/sudouest.webp',
@@ -491,7 +490,7 @@ function recupererLogos($nomEntite=''){
         'France Antilles' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/franceantilles.webp',
         'France Guyane' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/franceguyane.webp',
         'Abdoul Cadjee' => 'https://p-a-racine.fr/vue/images/icons8-accueil-24.png',
-        'Le Journal de l’Île de la Réunion' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/lejournaldeliledelareunion.jp',
+        'Le Journal de l’Île de la Réunion' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/lejournaldeliledelareunion.webp',
         'Benjamin et Ariane de Rothschild' => 'https://p-a-racine.fr/vue/images/icons8-accueil-24.png',
         'Lampsane Investissement SA' => 'https://p-a-racine.fr/vue/images/icons8-accueil-24.png',
         'Slate.fr' => 'https://p-a-racine.fr/lib/articles/qui_possede_les_medias_francais/logos/slate.webp',

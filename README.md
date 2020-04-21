@@ -5,6 +5,6 @@
 Vous pouvez consulter une version du graphe sur mon
 [site personnel](https://p-a-racine.fr/index.php?article=medias). 
 
-- todo système de filtres/sélection
+- todo éventuel système de filtres/sélection
 - todo mettre un console.log pour tous ceux qui n'ont pas de logo/image/photo
 - nettoyage final et documentation. 
